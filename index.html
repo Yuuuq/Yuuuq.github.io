@@ -87,18 +87,6 @@
       text-decoration: underline;
     }
 
-    .profile-cv {
-      display: flex;
-      gap: 5px;
-      align-items: center;
-      font-size: 16px;
-    }
-
-    .profile-cv p {
-      margin: 0;
-      color: #262626;
-    }
-
     .icons-container {
       display: flex;
       justify-content: space-around;
@@ -220,12 +208,7 @@
         <p class="name">Yuqi Wang</p>
         <p class="detail">2024-2029 @ CUHK(SZ)</p>
         <p class="detail">2020-2023 @ Queens' College, Cambridge</p>
-        <div class="profile-cv">
-          <p>CV:</p>
-          <a href="english-cv.html">English</a>
-          <p>/</p>
-          <a href="chinese-cv.html">Chinese</a>
-        </div>
+        <!-- ✅ CV section removed -->
       </div>
     </div>
 
@@ -249,11 +232,11 @@
     const content = {
       Moments: [
         { src: '/Moments/1_.jpg', text: 'Joao @ Eagle' },
-        { src: '/Moments/2_.jpg', text: 'Eugene @ Queens\' Graduation' },
+        { src: '/Moments/2_.jpg', text: 'Eugene @ Queens\\' Graduation' },
         { src: '/Moments/3_.jpg', text: 'Me @ Senate House' },
         { src: '/Moments/4_.jpg', text: '@ Mathematical Bridge' },
-        { src: '/Moments/5_.jpg', text: '@ St. John\'s' },
-        { src: '/Moments/6_.jpg', text: '@ St. John\'s' },
+        { src: '/Moments/5_.jpg', text: '@ St. John\\'s' },
+        { src: '/Moments/6_.jpg', text: '@ St. John\\'s' },
         { src: '/Moments/7_.jpg', text: '@ Newnham' },
         { src: '/Moments/8_.jpg', text: '@ Newnham' },
         { src: '/Moments/9_.jpg', text: '@ Trinity Hall' },
@@ -263,10 +246,10 @@
         { src: '/Moments/13_.jpg', text: '@ Mathematical Bridge' },
         { src: '/Moments/14_.jpg', text: '@ Mathematical Bridge' },
         { src: '/Moments/15_.jpg', text: '@ Corpus Christi' },
-        { src: '/Moments/16_.jpg', text: '@ St Catherine\'s' },
-        { src: '/Moments/17_.jpg', text: '@ King\'s' },
-        { src: '/Moments/18_.jpg', text: '@ Queens\'' },
-        { src: '/Moments/19_.jpg', text: '@ Queens\'' }
+        { src: '/Moments/16_.jpg', text: '@ St Catherine\\'s' },
+        { src: '/Moments/17_.jpg', text: '@ King\\'s' },
+        { src: '/Moments/18_.jpg', text: '@ Queens\\'' },
+        { src: '/Moments/19_.jpg', text: '@ Queens\\'' }
       ],
       Research: `
         <p>Research Text 1</p>
@@ -280,20 +263,19 @@
         <p>Teaching Text 3</p>
         <p>Teaching Text 4</p>
       `,
-        Others: `
-    <h3>Side project: Oxbridge interview demo</h3>
-    <p>
-      Below is an interactive mock Oxbridge interview webapp I’m building.
-    </p>
-    <iframe
-      src="Oxbridge-interview-demo/chat.html"
-      style="width: 100%; height: 700px; border: 1px solid #dbdbdb; border-radius: 8px;"
-    ></iframe>
-    <p style="font-size: 12px; color: #888; margin-top: 8px;">
-      If the app does not respond, the interview backend server might be offline.
-    </p>
-  `
-
+      Others: `
+        <h3>Side project: Supervision</h3>
+        <p>
+          Below is a short product intro page (about.html) embedded directly.
+        </p>
+        <iframe
+          src="Oxbridge-interview-demo/about.html"
+          style="width: 100%; height: 720px; border: 1px solid #dbdbdb; border-radius: 8px;"
+        ></iframe>
+        <p style="font-size: 12px; color: #888; margin-top: 8px;">
+          If this iframe is blank on GitHub Pages, double-check the relative path and that the video file is reachable.
+        </p>
+      `
     };
 
     function changeContent(icon, element) {
@@ -304,13 +286,18 @@
         picturesContainer.style.display = 'grid';
         contentContainer.style.display = 'none';
         picturesContainer.innerHTML = '';
+
         content[icon].forEach(pic => {
           const flipCard = document.createElement('div');
           flipCard.className = 'flip-card';
+
           const flipCardInner = document.createElement('div');
           flipCardInner.className = 'flip-card-inner';
           flipCardInner.addEventListener('click', () => {
-            flipCardInner.style.transform = flipCardInner.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+            flipCardInner.style.transform =
+              flipCardInner.style.transform === 'rotateY(180deg)'
+                ? 'rotateY(0deg)'
+                : 'rotateY(180deg)';
           });
 
           const flipCardFront = document.createElement('div');
@@ -329,22 +316,20 @@
           flipCardInner.appendChild(flipCardFront);
           flipCardInner.appendChild(flipCardBack);
           flipCard.appendChild(flipCardInner);
-
           picturesContainer.appendChild(flipCard);
         });
+
       } else {
         picturesContainer.style.display = 'none';
         contentContainer.style.display = 'block';
         contentContainer.innerHTML = content[icon];
       }
 
-      // Highlight the selected icon
       const icons = document.querySelectorAll('.icons-container span');
       icons.forEach(icon => icon.classList.remove('selected'));
       element.classList.add('selected');
     }
 
-    // Default to show content for the first icon
     changeContent('Moments', document.querySelector('.icons-container span.selected'));
   </script>
 </body>
