@@ -1,351 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yuqi Wang - Profile</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #fafafa;
-      color: #262626;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      flex-direction: column;
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 800px;
-      width: 100%;
-      background-color: #fff;
-      border: 1px solid #dbdbdb;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 20px;
-      overflow-x: hidden;
-    }
-
-    .profile-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      margin-bottom: 10px;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    .profile-section img {
-      border-radius: 50%;
-      width: 100%;
-      max-width: 200px;
-      height: auto;
-      border: 2px solid #dbdbdb;
-      margin-bottom: 20px;
-    }
-
-    .profile-details {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-
-    .profile-details p {
-      margin: 0 0 10px;
-    }
-
-    .profile-details p.name {
-      font-size: 24px;
-      font-weight: bold;
-      color: #262626;
-    }
-
-    .profile-details p.detail {
-      font-size: 16px;
-      color: #262626;
-    }
-
-    .profile-details a {
-      color: #0095f6;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
-    }
-
-    .profile-details a:hover {
-      text-decoration: underline;
-    }
-
-    .profile-cv {
-      display: flex;
-      gap: 5px;
-      align-items: center;
-      font-size: 16px;
-    }
-
-    .profile-cv p {
-      margin: 0;
-      color: #262626;
-    }
-
-    .icons-container {
-      display: flex;
-      justify-content: space-around;
-      width: 100%;
-      margin: 15px 0;
-      padding: 10px 0;
-      border-bottom: 1px solid #dbdbdb;
-    }
-
-    .icons-container span {
-      cursor: pointer;
-      font-size: 16px;
-      color: #262626;
-      font-weight: bold;
-      padding: 10px 20px;
-      text-align: center;
-    }
-
-    .icons-container span:hover,
-    .icons-container span.selected {
-      background-color: #f0f0f0;
-      border-radius: 5px;
-    }
-
-    .content-container {
-      display: none;
-      width: 100%;
-      box-sizing: border-box;
-      padding: 10px;
-    }
-
-    .content-container p {
-      font-size: 16px;
-      color: #262626;
-    }
-
-    .pictures-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    .flip-card {
-      background-color: transparent;
-      width: 100%;
-      perspective: 1000px;
-    }
-
-    .flip-card-inner {
-      position: relative;
-      width: 100%;
-      height: 0;
-      padding-bottom: 100%;
-      text-align: center;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-      cursor: pointer;
-    }
-
-    .flip-card-front, .flip-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .flip-card-front {
-      background-color: #fff;
-    }
-
-    .flip-card-front img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .flip-card-back {
-      background-color: #f0f0f0;
-      color: #262626;
-      transform: rotateY(180deg);
-      padding: 10px;
-      box-sizing: border-box;
-      text-align: center;
-      overflow-y: auto;
-    }
-
-    .flip-card-back p {
-      margin: 0;
-    }
-
-    @media (min-width: 768px) {
-      .profile-section {
-        flex-direction: row;
-      }
-
-      .profile-section img {
-        margin-bottom: 0;
-        margin-right: 60px;
-      }
-
-      .profile-details {
-        align-items: flex-start;
-        text-align: left;
-      }
-    }
-  </style>
+  <title>Yuqi Wang</title>
+  <link rel="stylesheet" href="styles.css?v=20260510-minimal4">
 </head>
-<body>
-  <div class="container">
-    <div class="profile-section">
-      <img src="/profile_pic/graduation_.jpg" alt="Yuqi Wang">
-      <div class="profile-details">
-        <p class="name">Yuqi Wang</p>
-        <p class="detail">2024-2029 @ CUHK(SZ)</p>
-        <p class="detail">2020-2023 @ Queens' College, Cambridge</p>
-        <div class="profile-cv">
-          <p>CV:</p>
-          <a href="english-cv.html">English</a>
-          <p>/</p>
-          <a href="chinese-cv.html">Chinese</a>
-        </div>
+<body class="home-page">
+  <main class="stage-shell" id="stageShell">
+    <section class="theater" aria-label="Yuqi Wang homepage stage">
+      <div class="doll-zone" id="dollZone">
+        <button class="center-menu-button" id="centerMenuButton" type="button" aria-label="Open page menu" aria-expanded="false"></button>
+
+        <nav class="choice-menu" aria-label="Site pages">
+          <svg class="menu-arc menu-arc-desktop" viewBox="0 0 600 600" aria-hidden="true">
+            <path d="M 379 84 A 230 230 0 0 1 488 168 A 230 230 0 0 1 530 300 A 230 230 0 0 1 488 432 A 230 230 0 0 1 379 516" />
+          </svg>
+          <svg class="menu-arc menu-arc-mobile" viewBox="0 0 600 600" aria-hidden="true">
+            <path d="M 379 84 A 230 230 0 0 1 488 168 A 230 230 0 0 1 530 300 A 230 230 0 0 1 488 432 A 230 230 0 0 1 379 516" />
+          </svg>
+          <a href="cv.html"><span>简历</span></a>
+          <a href="research.html"><span>研究</span></a>
+          <a href="teaching.html"><span>教学</span></a>
+          <a href="moments.html"><span>相册</span></a>
+          <a href="others.html"><span>其他</span></a>
+        </nav>
       </div>
-    </div>
 
-    <div class="icons-container">
-      <span class="selected" onclick="changeContent('Moments', this)">Moments</span>
-      <span onclick="changeContent('Research', this)">Research</span>
-      <span onclick="changeContent('Teaching', this)">Teaching</span>
-      <span onclick="changeContent('Others', this)">Others</span>
-    </div>
-
-    <div class="content-container" id="contentContainer">
-      <!-- Content will be dynamically added here -->
-    </div>
-
-    <div class="pictures-container" id="picturesContainer">
-      <!-- Pictures will be dynamically added here -->
-    </div>
-  </div>
-
+    </section>
+  </main>
   <script>
-    const content = {
-      Moments: [
-        { src: '/Moments/1_.jpg', text: 'Joao @ Eagle' },
-        { src: '/Moments/2_.jpg', text: 'Eugene @ Queens\' Graduation' },
-        { src: '/Moments/3_.jpg', text: 'Me @ Senate House' },
-        { src: '/Moments/4_.jpg', text: '@ Mathematical Bridge' },
-        { src: '/Moments/5_.jpg', text: '@ St. John\'s' },
-        { src: '/Moments/6_.jpg', text: '@ St. John\'s' },
-        { src: '/Moments/7_.jpg', text: '@ Newnham' },
-        { src: '/Moments/8_.jpg', text: '@ Newnham' },
-        { src: '/Moments/9_.jpg', text: '@ Trinity Hall' },
-        { src: '/Moments/10_.jpg', text: '@ Mathematical Bridge' },
-        { src: '/Moments/11_.jpg', text: '@ Mathematical Bridge' },
-        { src: '/Moments/12_.jpg', text: '@ Mathematical Bridge' },
-        { src: '/Moments/13_.jpg', text: '@ Mathematical Bridge' },
-        { src: '/Moments/14_.jpg', text: '@ Mathematical Bridge' },
-        { src: '/Moments/15_.jpg', text: '@ Corpus Christi' },
-        { src: '/Moments/16_.jpg', text: '@ St Catherine\'s' },
-        { src: '/Moments/17_.jpg', text: '@ King\'s' },
-        { src: '/Moments/18_.jpg', text: '@ Queens\'' },
-        { src: '/Moments/19_.jpg', text: '@ Queens\'' }
-      ],
-      Research: `
-        <p>Research Text 1</p>
-        <p>Research Text 2</p>
-        <p>Research Text 3</p>
-        <p>Research Text 4</p>
-      `,
-      Teaching: `
-        <p>Teaching Text 1</p>
-        <p>Teaching Text 2</p>
-        <p>Teaching Text 3</p>
-        <p>Teaching Text 4</p>
-      `,
-        Others: `
-    <h3>Side project: </h3>
-    <p>
-      Below is
-    </p>
-    <iframe
-      src="Oxbridge-interview-demo/about_.html"
-      style="width: 100%; height: 700px; border: 1px solid #dbdbdb; border-radius: 8px;"
-    ></iframe>
-    <p style="font-size: 12px; color: #888; margin-top: 8px;">
-      If the app does not respond, the backend server might be offline.
-    </p>
-  `
-
-    };
-
-    function changeContent(icon, element) {
-      const picturesContainer = document.getElementById('picturesContainer');
-      const contentContainer = document.getElementById('contentContainer');
-
-      if (icon === 'Moments') {
-        picturesContainer.style.display = 'grid';
-        contentContainer.style.display = 'none';
-        picturesContainer.innerHTML = '';
-        content[icon].forEach(pic => {
-          const flipCard = document.createElement('div');
-          flipCard.className = 'flip-card';
-          const flipCardInner = document.createElement('div');
-          flipCardInner.className = 'flip-card-inner';
-          flipCardInner.addEventListener('click', () => {
-            flipCardInner.style.transform = flipCardInner.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
-          });
-
-          const flipCardFront = document.createElement('div');
-          flipCardFront.className = 'flip-card-front';
-          const img = document.createElement('img');
-          img.src = pic.src;
-          img.alt = 'Picture';
-          flipCardFront.appendChild(img);
-
-          const flipCardBack = document.createElement('div');
-          flipCardBack.className = 'flip-card-back';
-          const text = document.createElement('p');
-          text.textContent = pic.text;
-          flipCardBack.appendChild(text);
-
-          flipCardInner.appendChild(flipCardFront);
-          flipCardInner.appendChild(flipCardBack);
-          flipCard.appendChild(flipCardInner);
-
-          picturesContainer.appendChild(flipCard);
-        });
-      } else {
-        picturesContainer.style.display = 'none';
-        contentContainer.style.display = 'block';
-        contentContainer.innerHTML = content[icon];
-      }
-
-      // Highlight the selected icon
-      const icons = document.querySelectorAll('.icons-container span');
-      icons.forEach(icon => icon.classList.remove('selected'));
-      element.classList.add('selected');
-    }
-
-    // Default to show content for the first icon
-    changeContent('Moments', document.querySelector('.icons-container span.selected'));
+    window.__stageSceneErrors = [];
+    window.addEventListener("error", (event) => {
+      window.__stageSceneErrors.push(event.message);
+    });
+    window.addEventListener("unhandledrejection", (event) => {
+      window.__stageSceneErrors.push(String(event.reason));
+    });
   </script>
+  <script src="main.js?v=20260510-minimal4"></script>
 </body>
 </html>
