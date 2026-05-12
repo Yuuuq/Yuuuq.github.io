@@ -3090,17 +3090,17 @@ body,
   z-index: 1;
   display: grid;
   grid-auto-rows: min-content;
-  gap: clamp(20px, 3.6vh, 34px);
+  gap: clamp(16px, 3vh, 28px);
   justify-items: center;
-  width: 136px;
+  width: 104px;
 }
 
 .desktop-folder {
   display: grid;
   justify-items: center;
-  width: 118px;
-  min-height: 124px;
-  padding: 4px 3px 6px;
+  width: 92px;
+  min-height: 96px;
+  padding: 3px 2px 5px;
   color: #fff;
   text-align: center;
   text-decoration: none;
@@ -3111,10 +3111,10 @@ body,
 .folder-icon {
   position: relative;
   display: block;
-  width: 84px;
-  height: 68px;
-  margin: 0 auto 11px;
-  border-radius: 6px;
+  width: 62px;
+  height: 50px;
+  margin: 0 auto 8px;
+  border-radius: 5px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.24), transparent 18%),
     linear-gradient(180deg, #b9b9bd 0%, #9e9ea2 54%, #828286 100%);
@@ -3126,12 +3126,12 @@ body,
 
 .folder-icon::before {
   position: absolute;
-  left: 6px;
-  top: -8px;
-  width: 36px;
-  height: 14px;
+  left: 5px;
+  top: -6px;
+  width: 27px;
+  height: 11px;
   content: "";
-  border-radius: 6px 7px 0 0;
+  border-radius: 5px 6px 0 0;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.24), transparent 45%),
     linear-gradient(180deg, #b8b8bc, #9a9aa0);
@@ -3142,7 +3142,7 @@ body,
   position: absolute;
   left: 0;
   right: 0;
-  top: 9px;
+  top: 7px;
   height: 1px;
   content: "";
   background: rgba(255, 255, 255, 0.26);
@@ -3150,11 +3150,11 @@ body,
 
 .folder-label {
   display: inline-block;
-  max-width: 112px;
-  padding: 1px 5px 2px;
+  max-width: 88px;
+  padding: 1px 4px 2px;
   border-radius: 5px;
   color: #fff;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 750;
   line-height: 1.15;
   overflow-wrap: anywhere;
@@ -3189,30 +3189,30 @@ body,
   .desktop-folders {
     top: 18px;
     right: 10px;
-    gap: 18px;
-    width: 108px;
+    gap: 14px;
+    width: 86px;
   }
 
   .desktop-folder {
-    width: 102px;
-    min-height: 108px;
+    width: 82px;
+    min-height: 86px;
   }
 
   .folder-icon {
-    width: 72px;
-    height: 58px;
-    margin-bottom: 9px;
+    width: 56px;
+    height: 45px;
+    margin-bottom: 7px;
   }
 
   .folder-icon::before {
-    width: 31px;
-    height: 12px;
-    top: -7px;
+    width: 24px;
+    height: 10px;
+    top: -6px;
   }
 
   .folder-label {
-    max-width: 96px;
-    font-size: 15px;
+    max-width: 78px;
+    font-size: 13px;
   }
 }
 
