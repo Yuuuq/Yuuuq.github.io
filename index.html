@@ -4,40 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yuqi Wang</title>
-  <link rel="stylesheet" href="styles.css?v=20260510-minimal4">
+  <link rel="stylesheet" href="styles.css?v=20260512-desktop3">
 </head>
 <body class="home-page">
-  <main class="stage-shell" id="stageShell">
-    <section class="theater" aria-label="Yuqi Wang homepage stage">
-      <div class="doll-zone" id="dollZone">
-        <button class="center-menu-button" id="centerMenuButton" type="button" aria-label="Open page menu" aria-expanded="false"></button>
-
-        <nav class="choice-menu" aria-label="Site pages">
-          <svg class="menu-arc menu-arc-desktop" viewBox="0 0 600 600" aria-hidden="true">
-            <path d="M 379 84 A 230 230 0 0 1 488 168 A 230 230 0 0 1 530 300 A 230 230 0 0 1 488 432 A 230 230 0 0 1 379 516" />
-          </svg>
-          <svg class="menu-arc menu-arc-mobile" viewBox="0 0 600 600" aria-hidden="true">
-            <path d="M 379 84 A 230 230 0 0 1 488 168 A 230 230 0 0 1 530 300 A 230 230 0 0 1 488 432 A 230 230 0 0 1 379 516" />
-          </svg>
-          <a href="cv.html"><span>简历</span></a>
-          <a href="research.html"><span>研究</span></a>
-          <a href="teaching.html"><span>教学</span></a>
-          <a href="moments.html"><span>相册</span></a>
-          <a href="others.html"><span>其他</span></a>
-        </nav>
-      </div>
-
+  <main class="desktop-shell" aria-label="Yuqi Wang desktop homepage">
+    <section class="mac-desktop">
+      <nav class="desktop-folders" aria-label="Site pages">
+        <a class="desktop-folder" href="cv.html">
+          <span class="folder-icon" aria-hidden="true"></span>
+          <span class="folder-label">简历</span>
+        </a>
+        <a class="desktop-folder" href="research.html">
+          <span class="folder-icon" aria-hidden="true"></span>
+          <span class="folder-label">研究</span>
+        </a>
+        <a class="desktop-folder" href="teaching.html">
+          <span class="folder-icon" aria-hidden="true"></span>
+          <span class="folder-label">教学</span>
+        </a>
+        <a class="desktop-folder" href="moments.html">
+          <span class="folder-icon" aria-hidden="true"></span>
+          <span class="folder-label">图片</span>
+        </a>
+        <a class="desktop-folder" href="others.html">
+          <span class="folder-icon" aria-hidden="true"></span>
+          <span class="folder-label">其他</span>
+        </a>
+      </nav>
     </section>
   </main>
-  <script>
-    window.__stageSceneErrors = [];
-    window.addEventListener("error", (event) => {
-      window.__stageSceneErrors.push(event.message);
-    });
-    window.addEventListener("unhandledrejection", (event) => {
-      window.__stageSceneErrors.push(String(event.reason));
-    });
-  </script>
-  <script src="main.js?v=20260510-minimal4"></script>
 </body>
 </html>
