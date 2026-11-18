@@ -1,37 +1,121 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yuqi Wang</title>
-  <link rel="stylesheet" href="styles.css?v=20260512-desktop4">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wireless Power Transfer — Interactive Presentation</title>
+<style>
+:root{color-scheme:dark;--bg:#0a1424;--fg:#f3f7ff;--muted:#adbed3;--blue:#58caff;--gold:#ffcc70;--green:#71e2b2;--coral:#ff997e;--line:#2e425b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:Arial,Helvetica,sans-serif}main{max-width:1580px;min-height:100svh;margin:auto;padding:24px 36px;display:flex;flex-direction:column;gap:18px}header,.row,footer{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.brand{font-size:14px;color:var(--blue);letter-spacing:2px;font-weight:bold}button{font:inherit;border:1px solid var(--line);background:#142237;color:var(--fg);border-radius:9px;padding:11px 16px;cursor:pointer;min-height:44px}button:hover{background:#233a53}button:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:3px}button[aria-pressed=true]{background:#25465d;border-color:var(--blue)}button:disabled{opacity:.4;cursor:default}.primary{background:#b9ecff;color:#092235;font-weight:bold;border-color:transparent}.primary:hover{background:#d6f5ff}nav{display:flex;gap:8px;flex-wrap:wrap}nav button{font-size:14px}h1{font-size:clamp(26px,3.3vw,48px);margin:0;line-height:1.15}.eyebrow{color:var(--muted);font-size:13px;letter-spacing:1.5px;margin-bottom:9px}.scene{position:relative}svg{width:100%;height:auto;display:block;max-height:49vh;overflow:visible}.scene text{font-family:Arial,Helvetica,sans-serif;paint-order:stroke;stroke:var(--bg);stroke-width:6px;stroke-linejoin:round}.material-controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:2px}.material-controls button{min-width:145px}.detail{min-height:44px;display:flex;justify-content:center;align-items:center;text-align:center;gap:14px;font-size:clamp(17px,1.5vw,23px);color:var(--gold);line-height:1.4}.takeaway{font-size:clamp(17px,1.65vw,24px);line-height:1.45;margin:0;text-align:center;max-width:1100px;align-self:center}.footnote{font-size:12px;color:var(--muted);line-height:1.5}.controls{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.count{font-size:14px;color:var(--muted);min-width:118px;text-align:center}footer{border-top:1px solid var(--line);padding-top:16px;margin-top:auto}details{border-top:1px solid var(--line);padding-top:12px;color:var(--muted);font-size:15px;line-height:1.55}summary{cursor:pointer;width:fit-content;color:var(--fg)}#script{max-width:1000px;color:var(--fg);font-size:18px}details p{margin:12px 0 0}.source{font-size:13px}kbd{font:inherit;color:var(--fg)}[hidden]{display:none!important}.live{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}@media(max-width:700px){main{padding:18px 16px;gap:16px}nav button{flex:1 1 140px;font-size:13px}svg{max-height:none}.material-controls button{min-width:0;flex:1 1 40%}footer{align-items:flex-start}.controls{width:100%;justify-content:space-between}.count{min-width:70px}.brand{font-size:12px}.detail{min-height:60px}header button{font-size:12px;padding:8px 12px}.footnote{font-size:11px}}
+@media print{button,nav,footer{display:none}body{background:white;color:black}details{display:block}}
+</style>
 </head>
-<body class="home-page">
-  <main class="desktop-shell" aria-label="Yuqi Wang desktop homepage">
-    <section class="mac-desktop">
-      <nav class="desktop-folders" aria-label="Site pages">
-        <a class="desktop-folder" href="cv.html">
-          <span class="folder-icon" aria-hidden="true"></span>
-          <span class="folder-label">简历</span>
-        </a>
-        <a class="desktop-folder" href="research.html">
-          <span class="folder-icon" aria-hidden="true"></span>
-          <span class="folder-label">研究</span>
-        </a>
-        <a class="desktop-folder" href="teaching.html">
-          <span class="folder-icon" aria-hidden="true"></span>
-          <span class="folder-label">教学</span>
-        </a>
-        <a class="desktop-folder" href="moments.html">
-          <span class="folder-icon" aria-hidden="true"></span>
-          <span class="folder-label">图片</span>
-        </a>
-        <a class="desktop-folder" href="others.html">
-          <span class="folder-icon" aria-hidden="true"></span>
-          <span class="folder-label">其他</span>
-        </a>
-      </nav>
-    </section>
-  </main>
+<body>
+<main>
+<header><span class="brand">WIRELESS POWER TRANSFER</span><div class="controls"><button id="motion" type="button" aria-pressed="false">Pause motion</button><button id="full" type="button">Full screen</button></div></header>
+<nav aria-label="Presentation sections" id="nav"></nav>
+<section aria-labelledby="title"><div class="eyebrow" id="section"></div><h1 id="title"></h1></section>
+<div class="scene">
+<svg viewBox="0 0 1500 490" role="img" aria-labelledby="diagram-title diagram-desc">
+<title id="diagram-title">Two coils transfer energy by electromagnetic induction</title><desc id="diagram-desc">A source drives a transmitting coil. Its changing field links a receiving coil connected to a lamp. No wire connects the two circuits.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#58caff"/></marker><marker id="eddy-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#ff997e"/></marker></defs>
+<g fill="none" stroke="#adbed3" stroke-width="4" stroke-linejoin="round"><path d="M460 155 H160 V210 M160 290 V345 H460"/><path d="M1030 155 H1330 V210 M1330 290 V345 H1030"/></g>
+<g id="caps" hidden stroke="#ffcc70" stroke-width="4"><path d="M290 155 H334 M366 155 H400"/><path d="M335 132 V178 M365 132 V178 M1175 132 V178 M1205 132 V178"/><path d="M1120 155 H1174 M1206 155 H1250"/><text x="350" y="115" text-anchor="middle" stroke="none" fill="#ffcc70" font-size="21">C</text><text x="1190" y="115" text-anchor="middle" stroke="none" fill="#ffcc70" font-size="21">C</text></g>
+<g id="field" fill="none" stroke="#58caff" stroke-width="2.1"></g>
+<g id="barrier"></g>
+<g id="tx" fill="none" stroke="#58caff" stroke-width="4"></g><g id="rx" fill="none" stroke="#ffcc70" stroke-width="4"></g>
+<circle cx="160" cy="250" r="40" fill="#0a1424" stroke="#58caff" stroke-width="4"/><path d="M133 250 Q146 215 160 250 T187 250" fill="none" stroke="#58caff" stroke-width="3"/>
+<g id="bulb"><circle cx="1330" cy="250" r="40" stroke-width="4"/><path d="M1303 223 L1357 277 M1357 223 L1303 277" stroke-width="3" fill="none"/><g id="rays" stroke-width="3"></g></g>
+<g fill="#adbed3" text-anchor="middle" font-size="21"><text x="160" y="392">AC source</text><text x="1330" y="392">AC load</text></g>
+<g font-size="21" text-anchor="middle" font-weight="bold"><text x="460" y="405" fill="#58caff">TRANSMITTING COIL</text><text x="1030" y="405" fill="#ffcc70">RECEIVING COIL</text><text id="material-label" x="745" y="443" fill="#71e2b2"></text></g>
+<rect x="526" y="36" width="440" height="36" fill="#0a1424"/><text x="746" y="61" text-anchor="middle" fill="#58caff" font-size="19">CHANGING MAGNETIC FIELD</text>
+<g id="stage-note" fill="#adbed3" font-size="19" text-anchor="middle"><text x="745" y="477">The two electrical circuits are separate.</text></g>
+</svg>
+</div>
+<div class="material-controls" id="materials" aria-label="Material between the coils" hidden></div>
+<div class="detail" id="detail"></div>
+<p class="takeaway" id="takeaway"></p>
+<div class="live" role="status" aria-live="polite" id="status"></div>
+<footer>
+<div class="controls"><button id="back" type="button">← Back</button><span class="count" id="count"></span><button id="next" type="button" class="primary">Next →</button></div>
+<span class="footnote">Click to advance · <kbd>←</kbd> / <kbd>→</kbd> or <kbd>Space</kbd> · <kbd>P</kbd> pause · <kbd>F</kbd> full screen<br>Schematic. Field cycles slowed; brightness is qualitative.</span>
+</footer>
+<details id="notes"><summary>Presenter script &amp; scientific notes</summary><p id="script"></p><p id="science"></p><p class="source">Based on the supplied <em>Demonstartion_ppt.pdf</em>, pages 5–7 and 20–22. The material comparison describes this experiment; it is not a numerical simulation.</p></details>
+</main>
+<script>
+'use strict';
+const $=id=>document.getElementById(id), NS='http://www.w3.org/2000/svg';
+const sections=[
+{short:'1 · Alternating current',title:'Alternating current creates a changing field.',detail:'Current reverses → the magnetic field reverses',caption:'An alternating current in the transmitting coil produces a changing magnetic field.',script:'An alternating current flows through the transmitting coil. This produces a magnetic field that repeatedly changes direction.',note:'The animation is slowed down. The field pattern is schematic; it does not represent a numerical solution.'},
+{short:'2 · Induction',title:'Changing magnetic flux induces a voltage.',detail:'Faraday’s law: ε = −N dΦ / dt',caption:'When changing magnetic flux links the receiving coil, an induced voltage drives current through its closed circuit.',script:'Some of that changing magnetic flux links the receiving coil. By Faraday’s law, it induces a voltage. With a closed circuit, current flows through the load.',note:'N is the receiver’s number of turns. Φ is linked flux per turn, assuming equal flux per turn. The minus sign expresses Lenz’s law.'},
+{short:'3 · Energy transfer',title:'The field transfers energy across the gap.',detail:'Electrical input → magnetic coupling → electrical output',caption:'There is no wire between the coils. Charges move within their own circuits.',script:'No wire joins the coils. Energy passes through the electromagnetic field, while charges move within each circuit.',note:'This is near-field inductive wireless power transfer. Field arrows show magnetic-field direction, not energy trajectories. The AC load is simplified; devices requiring DC also need rectification and appropriate regulation.'},
+{short:'4 · Resonance',title:'Tuning can increase the transferred power.',detail:'Ideal LC resonance: f₀ = 1 / (2π√(LC))',caption:'Capacitors tune the circuits. Coupling, loading, and losses still limit performance.',script:'Capacitors can tune the coil circuits to resonance. Near the tuned frequency, suitable coupling and low losses allow more power to reach the load.',note:'The formula describes an ideal individual LC circuit. Coupling, loading, and losses may shift the frequency giving maximum transferred power.'},
+{short:'5 · Different media',title:'What sits between the coils matters.',detail:'',caption:'',script:'',note:'The illustrated ordering follows this apparatus. Conductivity, thickness, grid geometry, coil spacing, and operating frequency affect transfer. Conductive barriers can cause loss and detuning. Brightness is qualitative.'}
+];
+const media=[
+{name:'Air',detail:'Baseline transfer',caption:'Air provides the reference: the changing field links the receiving coil.',script:'Air is our baseline. The changing magnetic field links the receiving coil.'},
+{name:'Glass',detail:'Similar transfer to air in this experiment',caption:'The glass barrier introduces little additional attenuation in this setup.',script:'Glass behaves similarly to air in this experiment. It introduces little additional attenuation.'},
+{name:'Metal grid',detail:'Eddy currents oppose changes in magnetic flux',caption:'Conductive paths support eddy currents, reducing transfer in this experiment.',script:'A metal grid reduces transfer. Induced eddy currents oppose changes in magnetic flux.'},
+{name:'Solid metal sheet',detail:'Transfer is suppressed more strongly in this experiment',caption:'A continuous conducting sheet supports eddy currents and reduces the field linking the receiver.',script:'The solid metal sheet reduces transfer even further in this experiment. Its continuous conducting surface supports eddy currents.'}
+];
+let stage=0, medium=0, paused=matchMedia('(prefers-reduced-motion: reduce)').matches, phase=.6, last=0;
+function el(tag,attrs,parent){const e=document.createElementNS(NS,tag);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));parent.append(e);return e;}
+for(let j=0;j<6;j++){el('ellipse',{cx:440+j*8,cy:250,rx:34,ry:95},$('tx'));el('ellipse',{cx:1010+j*8,cy:250,rx:34,ry:95},$('rx'));}
+for(let a=0;a<360;a+=45){let q=a*Math.PI/180;el('line',{x1:1330+53*Math.cos(q),y1:250+53*Math.sin(q),x2:1330+63*Math.cos(q),y2:250+63*Math.sin(q)},$('rays'));}
+// Every field line closes. Direction is common within the two coil apertures,
+// and reverses on the outer return paths. No particles travel between coils.
+const paths=[];
+for(const sign of [-1,1])for(const r of [105,145,180]){
+ const g=el('g',{},$('field'));
+ const a=el('path',{d:`M365 250 C510 ${250+sign*r*.13} 980 ${250+sign*r*.13} 1125 250`,fill:'none'},g);
+ const b=el('path',{d:`M1125 250 C1125 ${250+sign*r*1.4} 365 ${250+sign*r*1.4} 365 250`,fill:'none'},g);
+ const inner=el('path',{d:`M715 ${250+sign*r*.0975} H775`,'marker-end':'url(#arrow)',fill:'none'},g);
+ const outer=el('path',{d:`M775 ${250+sign*r*1.05} H715`,'marker-end':'url(#arrow)',fill:'none'},g);
+ paths.push({g,inner,outer,r,sign});
+}
+// A receiver-side mask dims the existing closed loops without suggesting that field lines end at the sheet.
+const defs=document.querySelector('defs'),filter=el('linearGradient',{id:'fieldFade',x1:'0%',x2:'100%'},defs);
+for(const [off,opacity] of [['0%',1],['44%',1],['57%',1],['100%',1]])el('stop',{offset:off,'stop-color':'#58caff','stop-opacity':opacity},filter);
+$('field').setAttribute('stroke','url(#fieldFade)');
+sections.forEach((s,i)=>{let b=document.createElement('button');b.type='button';b.textContent=s.short;b.onclick=()=>{stage=i;medium=0;render();};$('nav').append(b);});
+media.forEach((m,i)=>{let b=document.createElement('button');b.type='button';b.textContent=m.name;b.onclick=()=>{medium=i;render();};$('materials').append(b);});
+function material(){
+ const b=$('barrier');b.replaceChildren();if(stage!==4||medium===0)return;
+ const shape='710,161 780,130 780,334 710,365';
+ el('polygon',{points:shape,fill:medium===1?'#9be8ff': '#8da1b8','fill-opacity':medium===1?.13:medium===2?.08:.88,stroke:'#c1d9eb','stroke-width':3},b);
+ if(medium===2){for(let y=180;y<350;y+=22)el('line',{x1:711,y1:y,x2:779,y2:y-30,stroke:'#b9cddd','stroke-width':2},b);for(let x=722;x<779;x+=14)el('line',{x1:x,y1:161-(x-710)*31/70,x2:x,y2:365-(x-710)*31/70,stroke:'#b9cddd','stroke-width':2},b);}
+ if(medium>=2)for(const y of medium===2?[220,285]:[250]){el('ellipse',{cx:745,cy:y,rx:18,ry:25,fill:'none',stroke:'#ff997e','stroke-width':3},b);el('path',{class:'eddy',d:`M735 ${y-25} H755`,stroke:'#ff997e','stroke-width':3,'marker-end':'url(#eddy-arrow)'},b);}
+}
+function render(){
+ const s=sections[stage],m=media[medium];
+ $('section').textContent=`${String(stage+1).padStart(2,'0')} / ${['THE TRANSMITTER','ELECTROMAGNETIC INDUCTION','ENERGY TRANSFER','RESONANCE','DIFFERENT MEDIA'][stage]}`;
+ $('title').textContent=s.title;$('detail').textContent=stage===4?m.detail:s.detail;$('takeaway').textContent=stage===4?m.caption:s.caption;
+ $('script').textContent=stage===4?m.script:s.script;$('science').textContent=s.note;
+ $('materials').hidden=stage!==4;$('caps').toggleAttribute('hidden',stage!==3);
+ // Hide the original wire segments behind the capacitor plates.
+ let capMasks=document.getElementById('capMasks');if(capMasks)capMasks.remove();
+ if(stage===3){capMasks=el('g',{id:'capMasks',stroke:'#0a1424','stroke-width':8},document.querySelector('svg'));for(const x of [350,1190])el('path',{d:`M${x-14} 155 H${x+14}`},capMasks);document.querySelector('svg').append($('caps'));}
+ $('stage-note').toggleAttribute('hidden',stage===4);$('material-label').textContent=stage===4?m.name.toUpperCase():'';
+ [...$('nav').children].forEach((b,i)=>b.setAttribute('aria-pressed',i===stage));[...$('materials').children].forEach((b,i)=>b.setAttribute('aria-pressed',i===medium));
+ $('count').textContent=stage===4?`5 / 5 · ${medium+1} / 4`:`${stage+1} / 5`;
+ $('back').disabled=stage===0;$('next').textContent=stage===4&&medium===3?'Restart ↺':'Next →';
+ $('status').textContent=`Section ${stage+1}. ${stage===4?m.name+'. '+m.detail:s.title}`;
+ $('diagram-desc').textContent=`Separate transmitter and receiver circuits linked by a changing field.${stage===4?' Medium: '+m.name+'. '+m.caption:''}`;
+ material();paint();
+}
+function move(dir){if(dir>0){if(stage===4){if(medium<3)medium++;else{stage=0;medium=0;}}else{stage++;medium=0;}}else if(stage===4&&medium>0)medium--;else if(stage>0){stage--;medium=0;}render();}
+function paint(){
+ const sign=Math.sin(phase)>=0?1:-1, strength=.27+.73*Math.abs(Math.sin(phase));
+ const att=stage===4?[1,1,.30,.13][medium]:1;
+ [...filter.children].forEach((e,i)=>e.setAttribute('stop-opacity',strength*(i>1?att:1)));
+ for(const p of paths){const yi=250+p.sign*p.r*.0975,yo=250+p.sign*p.r*1.05;p.inner.setAttribute('d',sign>0?`M715 ${yi} H775`:`M775 ${yi} H715`);p.outer.setAttribute('d',sign>0?`M775 ${yo} H715`:`M715 ${yo} H775`);}
+ let bulb=stage===0?'#adbed3':att===1?'#ffcc70':medium===2?'#b29768':'#776d5e';$('bulb').setAttribute('stroke',bulb);$('bulb').firstElementChild.setAttribute('fill',stage===0?'#0a1424':att===1?'#453c2e':medium===2?'#2c2b29':'#1d2530');$('rays').setAttribute('opacity',stage===0?0:att);
+ document.querySelectorAll('.eddy').forEach(e=>{let y=e.previousElementSibling.getAttribute('cy')-25;e.setAttribute('d',Math.cos(phase)>0?`M755 ${y} H735`:`M735 ${y} H755`);});
+}
+function motion(){paused=!paused;updateMotion();}function updateMotion(){$('motion').textContent=paused?'Resume motion':'Pause motion';$('motion').setAttribute('aria-pressed',paused);}
+async function full(){try{if(document.fullscreenElement)await document.exitFullscreen();else if(document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen();}catch(e){$('full').textContent='Use browser full screen';}}
+$('back').onclick=()=>move(-1);$('next').onclick=()=>move(1);$('motion').onclick=motion;$('full').onclick=full;
+document.addEventListener('fullscreenchange',()=>{$('full').textContent=document.fullscreenElement?'Exit full screen':'Full screen';});
+document.addEventListener('keydown',e=>{if(e.altKey||e.ctrlKey||e.metaKey||['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName))return;const key=e.key.toLowerCase();if(key==='arrowright'||(key===' '&&!['BUTTON','SUMMARY'].includes(e.target.tagName))){e.preventDefault();move(1);}else if(key==='arrowleft'){e.preventDefault();move(-1);}else if(key==='p')motion();else if(key==='f')full();});
+function loop(t){if(last&&!paused){phase+=(Math.min(t-last,60)/1000)*Math.PI*1.1;paint();}last=t;requestAnimationFrame(loop);}render();updateMotion();requestAnimationFrame(loop);
+</script>
 </body>
 </html>
